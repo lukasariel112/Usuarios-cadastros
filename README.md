@@ -1,10 +1,8 @@
-Legal! Vou te ajudar a criar um README.md bem bacana para o seu repositório. Aqui vai um exemplo que você pode personalizar:
 
 ---
 
 # User Management API
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Descrição
 
