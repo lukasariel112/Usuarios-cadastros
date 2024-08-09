@@ -1,4 +1,6 @@
 
+![User Management API](https://link-para-seu-banner.com/banner.png)
+
 ---
 
 # User Management API
