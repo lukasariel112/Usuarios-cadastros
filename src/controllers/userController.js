@@ -16,7 +16,7 @@ exports.createUser = (req, res) => {
   });
 };
 
-// Mostra todos os usuários
+// Listar todos os usuários
 exports.getAllUsers = (req, res) => {
   const query = 'SELECT * FROM users';
   db.query(query, (err, results) => {
@@ -27,7 +27,7 @@ exports.getAllUsers = (req, res) => {
   });
 };
 
-// Busca dados de um usuário específico lembrar pelo ID
+// Busca dados de um usuário pelo ID
 exports.getUserById = (req, res) => {
   const userId = parseInt(req.params.id, 10);
   const query = 'SELECT * FROM users WHERE id = ?';
