@@ -5,10 +5,10 @@ const userController = require('../controllers/userController');
 // Rota novo usuário
 router.post('/users', userController.createUser);
 
-// Rota mostrar usuários criados
+// Rota lista usuários criados
 router.get('/users', userController.getAllUsers);
 
-// Mostrar somente um usuário específico pelo ID
+// Lista somente um usuário específico pelo ID
 router.get('/users/:id', userController.getUserById);
 
 // Atualizar informações do usuário pelo ID
