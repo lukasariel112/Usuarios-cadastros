@@ -6,21 +6,24 @@
 # API RESTE COM EXPRESS E NODEJS
 
 
-Descrição
+ User Management API
+
+## Descrição
 
 Esta é uma API para gerenciar usuários, permitindo operações CRUD (criar, ler, atualizar e excluir). A API foi construída com Node.js e Express, e utiliza MySQL para persistência de dados.
-Requisitos
 
-    Node.js (versão 14 ou superior recomendada)
-    MySQL (versão 5.7 ou superior recomendada)
+## Requisitos
 
-Configuração
-1. Clonar o Repositório
+- Node.js (versão 14 ou superior recomendada)
+- MySQL (versão 5.7 ou superior recomendada)
+
+## Configuração
+
+### 1. Clonar o Repositório
 
 Clone o repositório para o seu ambiente local:
 
-bash
-
+```bash
 git clone <URL_DO_REPOSITORIO>
 cd user-management-api
 
@@ -51,12 +54,24 @@ Atualize as credenciais do banco de dados no arquivo src/config/db.js:
 
 javascript
 
+    const mysql = require('mysql');
+
     const connection = mysql.createConnection({
       host: 'localhost',
       user: 'username',     // Substitua com seu usuário do MySQL
       password: 'password', // Substitua com sua senha do MySQL
       database: 'user_management_db',
     });
+
+    connection.connect((err) => {
+      if (err) {
+        console.error('Error connecting to the database:', err);
+        return;
+      }
+      console.log('Connected to the database.');
+    });
+
+    module.exports = connection;
 
 4. Iniciar o Servidor
 
@@ -202,5 +217,6 @@ curl -X DELETE http://localhost:3000/api/users/1
 Documentação
 
 Para mais detalhes sobre como usar esta API, consulte a documentação incluída no código-fonte e nos exemplos de requisição fornecidos acima.
+
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
