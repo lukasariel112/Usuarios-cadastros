@@ -11,7 +11,7 @@ app.use(express.json());
 // Rotas
 app.use('/api', userRoutes);
 
-// Iniciar o servidor aqui sempre puxa o 3000
+// Iniciar o servidor porta 3000
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
