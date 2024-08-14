@@ -211,8 +211,5 @@ curl -X DELETE http://localhost:3000/api/users/1
 Documentação
 
 Para mais detalhes sobre como usar esta API, consulte a documentação incluída no código-fonte e nos exemplos de requisição fornecidos acima.
-Licença
-
-Este projeto está licenciado sob a MIT License.
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
