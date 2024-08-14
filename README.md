@@ -1,6 +1,3 @@
-
-![User Management API](https://link-para-seu-banner.com/banner.png)
-
 ---
 
 # API REST COM NODEJS E EXPRESS
@@ -14,7 +11,6 @@
 - [Como Usar](#como-usar)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Contribuições](#contribuições)
-- [Licença](#licença)
 
 
 ## Descrição
@@ -37,88 +33,88 @@ A API oferece as seguintes funcionalidades:
 
 ### 1. Criar Usuário
 
-- **URL**: `/api/usuarios`
+- **URL**: `/api/users`
 - **Método**: `POST`
 - **Descrição**: Cria um novo usuário.
 - **Exemplo de Request**:
   ```json
   {
-    "nome": "Lucas Ariel",
-    "email": "lucas@example.com",
-    "idade": 18
+  "name": "teste11111",
+  "phone": "132321321",
+  "password": "1234"
   }
   ```
 - **Exemplo de Response**:
   ```json
   {
     "id": 1,
-    "nome": "Lucas Ariel",
-    "email": "lucas@example.com",
-    "idade": 18
-    "data_criacao": "2024-08-09T12:00:00Z"
-  }
+    "name": "Lucas Ariel",
+    "phone": "132321321",
+    "password": "1234"
+}
   ```
 
 ### 2. Listar Usuários
 
-- **URL**: `/api/usuarios`
+- **URL**: `/api/users`
 - **Método**: `GET`
 - **Descrição**: Retorna todos os usuários cadastrados.
 - **Exemplo de Response**:
   ```json
   [
     {
-      "id": 1,
-     "nome": "Lucas Ariel",
-     "email": "lucas@example.com",
-     "idade": 18
+        "id": 10,
+        "name": "testelukas",
+        "phone": "9999999999",
+        "password": "1234senha"
     },
     {
-      "id": 2,
-      "nome": "Ariel Lucas",
-      "email": "Ariel.lucas@example.com",
-      "idade": 25
+        "id": 12,
+        "name": "dasdsadsad",
+        "phone": "132321321",
+        "password": "1234"
     }
   ]
   ```
 
 ### 3. Consultar Usuário
 
-- **URL**: `/api/usuarios/{id}`
+- **URL**: `/api/users/{id}` adicionar nas chaver o id da busca
 - **Método**: `GET`
 - **Descrição**: Retorna os detalhes de um usuário específico.
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser consultado.
 - **Exemplo de Response**:
   ```json
   {
-    "id": 1,
-    "nome": "Lucas Ariel",
-    "email": "lucas@example.com",
-    "idade": 18
+    "id": 10,
+    "name": "testelukas",
+    "phone": "9999999999",
+    "password": "1234senha"
   }
   ```
 
 ### 4. Atualizar Usuário
 
-- **URL**: `/api/usuarios/{id}`
+- **URL**: `/api/users/{id}` Lembrar de usar o método PUT
 - **Método**: `PUT`
 - **Descrição**: Atualiza os dados de um usuário existente.
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser atualizado.
 - **Exemplo de Request**:
   ```json
   {
-    "nome": "João da Silva",
-    "email": "joao.silva@exemplo.com",
-    "idade": 31
+  "name": "nomealterado",
+  "phone": "12343242343",
+  "password": "senhaalterada"
   }
+
   ```
 - **Exemplo de Response**:
   ```json
   {
-    "id": 1,
-    "nome": "João da Silva",
-    "email": "joao.silva@exemplo.com",
-    "idade": 31
+    "id": 10,
+    "name": "nomealterado",
+    "phone": "12343242343",
+    "password": "senhaalterada"
   }
   ```
 
@@ -128,11 +124,6 @@ A API oferece as seguintes funcionalidades:
 - **Método**: `DELETE`
 - **Descrição**: Remove um usuário do sistema.
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser excluído.
-- **Exemplo de Response**:
-  ```json
-  {
-    "mensagem": "Usuário excluído com sucesso"
-  }
   ```
 
 ## Como Usar
@@ -148,8 +139,9 @@ A API oferece as seguintes funcionalidades:
    ```
 3. **Inicie o servidor**:
    ```bash
-   npm start
+   npm start Ou node app.js
    ```
+4. Dar cd na pasta src para rodar o node app.js
 
 A API estará disponível em `http://localhost:3000`.
 
