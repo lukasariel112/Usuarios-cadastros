@@ -30,6 +30,16 @@ A API oferece as seguintes funcionalidades:
 
 ## Banco de dados 
 
+Criar primeiramente a tabela, parecida com esse exemplo: 
+  ```sql
+  CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+  ```
+
 Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de dados:
   ```sql
   select * from users 
