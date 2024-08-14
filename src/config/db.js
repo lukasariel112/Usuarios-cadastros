@@ -1,24 +1,20 @@
+const mysql = require('mysql2');
 
-const mariadb = require('mariadb');
-
-// Configurar a conexão com o banco de dados
-const pool = mariadb.createPool({
-  host: 'localhost',
-  user: 'root',     // Substitua com seu usuário do MariaDB
-  password: 'La31@lu31', // Substitua com sua senha do MariaDB
-  database: 'users', // Substitua com o nome do banco de dados
-  connectionLimit: 5
+// Conecta no banco
+const connection = mysql.createConnection({
+  host: 'localhost', //local
+  user: 'root',     // Usuario do banco
+  password: 'La31@lu31', // Senha do usuario
+  database: 'users', // nome do nosso banco
 });
 
-
-// Função para obter uma conexão
-const getConnection = async () => {
-  try {
-    return await pool.getConnection();
-  } catch (err) {
+// Conectar ao banco de dados
+connection.connect(err => {
+  if (err) {
     console.error('Erro ao conectar ao banco de dados:', err);
-    throw err;
+    process.exit(1);// Mensagem quando da erro
   }
-};
+  console.log('Conectado ao banco de dados MySQL.');
+});
 
-module.exports = { getConnection };
+module.exports = connection;
