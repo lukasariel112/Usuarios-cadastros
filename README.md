@@ -8,7 +8,7 @@
 - [Descrição](#descrição)
 - [Funcionalidades](#funcionalidades)
 - [Endpoints](#endpoints)
-- [Banco de dados](#Bancodedados)
+- [Banco de dados](#Banco-de-dados)
 - [Como Usar](#como-usar)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Contribuições](#contribuições)
