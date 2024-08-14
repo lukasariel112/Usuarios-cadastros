@@ -6,16 +6,7 @@
 # API RESTE COM EXPRESS E NODEJS
 
 
-## Tabela de Conteúdos
-
-- [Descrição](#descrição)
-- [Funcionalidades](#funcionalidades)
-- [Endpoints](#endpoints)
-- [Como Usar](#como-usar)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Contribuições](#contribuições)
-- [Licença](#licença)
-
+Descrição
 
 Esta é uma API para gerenciar usuários, permitindo operações CRUD (criar, ler, atualizar e excluir). A API foi construída com Node.js e Express, e utiliza MySQL para persistência de dados.
 Requisitos
