@@ -32,7 +32,7 @@ A API oferece as seguintes funcionalidades:
 
 Criar primeiramente a tabela, parecida com esse exemplo: 
   ```sql
-  CREATE TABLE users (
+  CREATE TABLE nome_da_tabela (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   phone VARCHAR(20) NOT NULL,
