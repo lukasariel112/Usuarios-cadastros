@@ -7,8 +7,8 @@
 
 - [Descrição](#descrição)
 - [Funcionalidades](#funcionalidades)
-- [Endpoints](#endpoints)
 - [Banco de dados](#Banco-de-dados)
+- [Endpoints](#endpoints)
 - [Como Usar](#como-usar)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Contribuições](#contribuições)
@@ -28,6 +28,12 @@ A API oferece as seguintes funcionalidades:
 - **Atualizar Usuário**: Atualiza as informações de um usuário existente.
 - **Excluir Usuário**: Remove um usuário do sistema.
 
+## Banco de dados 
+
+Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de dados:
+  ```sql
+  select * from users 
+  ```
 
 ## Endpoints
 
@@ -128,12 +134,6 @@ A API oferece as seguintes funcionalidades:
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser excluído.
   ```
 
-## Banco de dados 
-
-Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de dados:
-  ```sql
-  select * from users 
-  ```
 
 ## Como Usar
 
