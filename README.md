@@ -70,7 +70,7 @@ Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de
     "phone": "132321321",
     "password": "1234"
 }
-  ```
+  ``
 
 ### 2. Listar Usuários
 
