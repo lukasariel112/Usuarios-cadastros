@@ -1,54 +1,86 @@
 const db = require('../config/db');
 
 // Criar um novo usuário
-exports.createUser = (req, res) => {
-  const { nome, telefone, senha } = req.body;
-  const query = 'INSERT INTO users (nome, telefone, senha) VALUES (?, ?, ?)';
-  db.query(query, [nome, telefone, senha], (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.status(201).json({ id: results.insertId, nome, telefone });
-  });
+exports.createUser = async (req, res) => {
+  const { name, phone, password } = req.body;
+  if (!name || !phone || !password) {
+    return res.status(400).json({ error: 'Name, phone, and password are required' });
+  }
+
+  try {
+    const conn = await db.getConnection();
+    const query = 'INSERT INTO users (name, phone, password) VALUES (?, ?, ?)';
+    const result = await conn.query(query, [name, phone, password]);
+    conn.end();
+    res.status(201).json({ id: result.insertId, name, phone, password });
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 // Listar todos os usuários
-exports.getUsers = (req, res) => {
-  const query = 'SELECT * FROM users';
-  db.query(query, (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.status(200).json(results);
-  });
+exports.getAllUsers = async (req, res) => {
+  try {
+    const conn = await db.getConnection();
+    const query = 'SELECT * FROM users';
+    const results = await conn.query(query);
+    conn.end();
+    res.json(results);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 // Obter detalhes de um usuário específico
-exports.getUserById = (req, res) => {
-  const { id } = req.params;
-  const query = 'SELECT * FROM users WHERE id = ?';
-  db.query(query, [id], (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (results.length === 0) return res.status(404).json({ message: 'Usuário não encontrado' });
-    res.status(200).json(results[0]);
-  });
+exports.getUserById = async (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  try {
+    const conn = await db.getConnection();
+    const query = 'SELECT * FROM users WHERE id = ?';
+    const results = await conn.query(query, [userId]);
+    conn.end();
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(results[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 // Atualizar informações de um usuário
-exports.updateUser = (req, res) => {
-  const { id } = req.params;
-  const { nome, telefone, senha } = req.body;
-  const query = 'UPDATE users SET nome = ?, telefone = ?, senha = ? WHERE id = ?';
-  db.query(query, [nome, telefone, senha, id], (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (results.affectedRows === 0) return res.status(404).json({ message: 'Usuário não encontrado' });
-    res.status(200).json({ id, nome, telefone });
-  });
+exports.updateUser = async (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+  const { name, phone, password } = req.body;
+
+  try {
+    const conn = await db.getConnection();
+    const query = 'UPDATE users SET name = ?, phone = ?, password = ? WHERE id = ?';
+    const result = await conn.query(query, [name, phone, password, userId]);
+    conn.end();
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json({ id: userId, name, phone, password });
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 // Excluir um usuário
-exports.deleteUser = (req, res) => {
-  const { id } = req.params;
-  const query = 'DELETE FROM users WHERE id = ?';
-  db.query(query, [id], (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (results.affectedRows === 0) return res.status(404).json({ message: 'Usuário não encontrado' });
-    res.status(200).json({ message: 'Usuário excluído com sucesso' });
-  });
+exports.deleteUser = async (req, res) => {
+  const userId = parseInt(req.params.id, 10);
+
+  try {
+    const conn = await db.getConnection();
+    const query = 'DELETE FROM users WHERE id = ?';
+    const result = await conn.query(query, [userId]);
+    conn.end();
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.status(204).send();
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
