@@ -27,9 +27,12 @@ A API oferece as seguintes funcionalidades:
 - **Atualizar Usuário**: Atualiza as informações de um usuário existente.
 - **Excluir Usuário**: Remove um usuário do sistema.
 
+
 ## Endpoints
 
 ### Lembrar que a URL completa é ***http://localhost:3000/***
+
+## Para validar os proximos passos no Banco de dados fazer um **select* na tabela users
 
 ### 1. Criar Usuário
 
