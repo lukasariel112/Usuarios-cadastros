@@ -3,208 +3,162 @@
 
 ---
 
-# API REST COM EXPRESS E NODEJS
+# API REST COM NODEJS E EXPRESS
 
 
-Claro! Aqui está um exemplo de um README detalhado e bem organizado para seu projeto de API de Gestão de Usuários:
-User Management API
-Descrição
+## Tabela de Conteúdos
 
-Esta é uma API para gerenciar usuários, permitindo operações CRUD (criar, ler, atualizar e excluir). A API foi construída com Node.js e Express, e utiliza MySQL para persistência de dados.
-Requisitos
+- [Descrição](#descrição)
+- [Funcionalidades](#funcionalidades)
+- [Endpoints](#endpoints)
+- [Como Usar](#como-usar)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Contribuições](#contribuições)
+- [Licença](#licença)
 
-    Node.js (versão 14 ou superior recomendada)
-    MySQL (versão 5.7 ou superior recomendada)
 
-Configuração
-1. Clonar o Repositório
+## Descrição
 
-Clone o repositório para o seu ambiente local:
+Esta é uma API para gerenciar usuários de um sistema. Ela permite realizar operações CRUD (criar, ler, atualizar e excluir) de usuários. Esta API foi desenvolvida por mim com o objetivo de fornecer um exemplo simples e funcional para gerenciar dados de usuários.
 
-bash
+## Funcionalidades
 
-git clone <URL_DO_REPOSITORIO>
-cd user-management-api
+A API oferece as seguintes funcionalidades:
 
-2. Instalar Dependências
+- **Criar Usuário**: Adiciona um novo usuário ao sistema.
+- **Listar Usuários**: Retorna uma lista de todos os usuários cadastrados.
+- **Consultar Usuário**: Retorna os detalhes de um usuário específico.
+- **Atualizar Usuário**: Atualiza as informações de um usuário existente.
+- **Excluir Usuário**: Remove um usuário do sistema.
 
-Instale as dependências do projeto:
+## Endpoints
 
-bash
+### Lembrar que a URL completa é ***http://localhost:3000/***
 
-npm install
+### 1. Criar Usuário
 
-3. Configurar o Banco de Dados
+- **URL**: `/api/usuarios`
+- **Método**: `POST`
+- **Descrição**: Cria um novo usuário.
+- **Exemplo de Request**:
+  ```json
+  {
+    "nome": "Lucas Ariel",
+    "email": "lucas@example.com",
+    "idade": 18
+  }
+  ```
+- **Exemplo de Response**:
+  ```json
+  {
+    "id": 1,
+    "nome": "Lucas Ariel",
+    "email": "lucas@example.com",
+    "idade": 18
+    "data_criacao": "2024-08-09T12:00:00Z"
+  }
+  ```
 
-    Crie um banco de dados MySQL chamado user_management_db.
+### 2. Listar Usuários
 
-    Crie a tabela users com a seguinte estrutura:
-
-    sql
-
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  phone VARCHAR(20) NOT NULL,
-  password VARCHAR(255) NOT NULL
-);
-
-Atualize as credenciais do banco de dados no arquivo src/config/db.js:
-
-javascript
-
-    const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'username',     // Substitua com seu usuário do MySQL
-      password: 'password', // Substitua com sua senha do MySQL
-      database: 'user_management_db',
-    });
-
-4. Iniciar o Servidor
-
-Inicie o servidor com o seguinte comando:
-
-bash
-
-npm start
-
-O servidor estará disponível em http://localhost:3000.
-Endpoints da API
-1. Criar um Novo Usuário
-
-    URL: /api/users
-
-    Método: POST
-
-    Corpo da Requisição (JSON):
-
-    json
-
-{
-  "name": "Nome do Usuário",
-  "phone": "123456789",
-  "password": "senha123"
-}
-
-Resposta:
-
-json
-
+- **URL**: `/api/usuarios`
+- **Método**: `GET`
+- **Descrição**: Retorna todos os usuários cadastrados.
+- **Exemplo de Response**:
+  ```json
+  [
     {
       "id": 1,
-      "name": "Nome do Usuário",
-      "phone": "123456789",
-      "password": "senha123"
-    }
-
-2. Listar Todos os Usuários
-
-    URL: /api/users
-
-    Método: GET
-
-    Resposta:
-
-    json
-
-    [
-      {
-        "id": 1,
-        "name": "Nome do Usuário",
-        "phone": "123456789",
-        "password": "senha123"
-      }
-    ]
-
-3. Obter Detalhes de um Usuário Específico
-
-    URL: /api/users/{id}
-
-    Método: GET
-
-    Resposta:
-
-    json
-
+     "nome": "Lucas Ariel",
+     "email": "lucas@example.com",
+     "idade": 18
+    },
     {
-      "id": 1,
-      "name": "Nome do Usuário",
-      "phone": "123456789",
-      "password": "senha123"
+      "id": 2,
+      "nome": "Ariel Lucas",
+      "email": "Ariel.lucas@example.com",
+      "idade": 25
     }
+  ]
+  ```
 
-4. Atualizar Informações de um Usuário
+### 3. Consultar Usuário
 
-    URL: /api/users/{id}
+- **URL**: `/api/usuarios/{id}`
+- **Método**: `GET`
+- **Descrição**: Retorna os detalhes de um usuário específico.
+- **Parâmetros**: `id` (obrigatório) - ID do usuário a ser consultado.
+- **Exemplo de Response**:
+  ```json
+  {
+    "id": 1,
+    "nome": "Lucas Ariel",
+    "email": "lucas@example.com",
+    "idade": 18
+  }
+  ```
 
-    Método: PUT
+### 4. Atualizar Usuário
 
-    Corpo da Requisição (JSON):
+- **URL**: `/api/usuarios/{id}`
+- **Método**: `PUT`
+- **Descrição**: Atualiza os dados de um usuário existente.
+- **Parâmetros**: `id` (obrigatório) - ID do usuário a ser atualizado.
+- **Exemplo de Request**:
+  ```json
+  {
+    "nome": "João da Silva",
+    "email": "joao.silva@exemplo.com",
+    "idade": 31
+  }
+  ```
+- **Exemplo de Response**:
+  ```json
+  {
+    "id": 1,
+    "nome": "João da Silva",
+    "email": "joao.silva@exemplo.com",
+    "idade": 31
+  }
+  ```
 
-    json
+### 5. Excluir Usuário
 
-{
-  "name": "Nome Atualizado",
-  "phone": "987654321",
-  "password": "novaSenha123"
-}
+- **URL**: `/api/usuarios/{id}`
+- **Método**: `DELETE`
+- **Descrição**: Remove um usuário do sistema.
+- **Parâmetros**: `id` (obrigatório) - ID do usuário a ser excluído.
+- **Exemplo de Response**:
+  ```json
+  {
+    "mensagem": "Usuário excluído com sucesso"
+  }
+  ```
 
-Resposta:
+## Como Usar
 
-json
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+2. **Instale as dependências**:
+   ```bash
+   cd seu-repositorio
+   npm install
+   ```
+3. **Inicie o servidor**:
+   ```bash
+   npm start
+   ```
 
-    {
-      "id": 1,
-      "name": "Nome Atualizado",
-      "phone": "987654321",
-      "password": "novaSenha123"
-    }
+A API estará disponível em `http://localhost:3000`.
 
-5. Excluir um Usuário
+## Tecnologias Utilizadas
 
-    URL: /api/users/{id}
-    Método: DELETE
-    Resposta: 204 No Content
+- Node.js
+- Express
+- MYsql 
 
-Exemplos de Requisições
-Criar um Novo Usuário
-
-bash
-
-curl -X POST http://localhost:3000/api/users \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Nome do Usuário", "phone": "123456789", "password": "senha123"}'
-
-Listar Todos os Usuários
-
-bash
-
-curl -X GET http://localhost:3000/api/users
-
-Obter Detalhes de um Usuário Específico
-
-bash
-
-curl -X GET http://localhost:3000/api/users/1
-
-Atualizar Informações de um Usuário
-
-bash
-
-curl -X PUT http://localhost:3000/api/users/1 \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Nome Atualizado", "phone": "987654321", "password": "novaSenha123"}'
-
-Excluir um Usuário
-
-bash
-
-curl -X DELETE http://localhost:3000/api/users/1
-
-Documentação
-
-Para mais detalhes sobre como usar esta API, consulte a documentação incluída no código-fonte e nos exemplos de requisição fornecidos acima.
-Para mais detalhes sobre como usar esta API, consulte a documentação incluída no código-fonte e nos exemplos de requisição fornecidos acima.
-
+## Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
