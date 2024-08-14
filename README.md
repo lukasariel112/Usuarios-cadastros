@@ -142,6 +142,8 @@ Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de
 - **Método**: `DELETE`
 - **Descrição**: Remove um usuário do sistema.
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser excluído.
+  ```json
+  Aqui não tem nenhum request e respose so rodar com o ID
   ```
 
 
