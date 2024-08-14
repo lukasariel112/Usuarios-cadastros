@@ -164,6 +164,8 @@ Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de
 
 A API estará disponível em `http://localhost:3000`.
 
+5. Caso não funcionar rodar o npm install express
+
 ## Tecnologias Utilizadas
 
 - Node.js
