@@ -32,11 +32,6 @@ A API oferece as seguintes funcionalidades:
 
 ### Lembrar que a URL completa é ***http://localhost:3000/***
 
-## Para validar os proximos passos no Banco de dados deve ser feito o:
-  ```sql
-  select * from users 
-  ```
-
 ### 1. Criar Usuário
 
 - **URL**: `/api/users`
@@ -130,6 +125,12 @@ A API oferece as seguintes funcionalidades:
 - **Método**: `DELETE`
 - **Descrição**: Remove um usuário do sistema.
 - **Parâmetros**: `id` (obrigatório) - ID do usuário a ser excluído.
+  ```
+
+##Banco de dados 
+## Para validar se os dados foram Criados, alterados ou excluidos rodar no Banco de dados:
+  ```sql
+  select * from users 
   ```
 
 ## Como Usar
