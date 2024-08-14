@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-// Aqui cria um novo usuário Lembrar de usar o metodo POST
+// Rota novo usuário
 router.post('/users', userController.createUser);
 
-// Mostra os usuarios ja criados lembrar de usar o GET
+// Rota mostrar usuários criados
 router.get('/users', userController.getAllUsers);
 
-// Mostrar somente um usuário específico pode ser pelo ID
+// Mostrar somente um usuário específico pelo ID
 router.get('/users/:id', userController.getUserById);
 
-// Atualizar informações de um usuário lembrar pelo ID
+// Atualizar informações do usuário pelo ID
 router.put('/users/:id', userController.updateUser);
 
-// Excluir um usuário pelo ID e metodo DELETE
+// Excluir um usuário pelo ID 
 router.delete('/users/:id', userController.deleteUser);
 
 module.exports = router;
