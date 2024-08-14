@@ -32,7 +32,10 @@ A API oferece as seguintes funcionalidades:
 
 ### Lembrar que a URL completa é ***http://localhost:3000/***
 
-## Para validar os proximos passos no Banco de dados fazer um **select* na tabela users
+## Para validar os proximos passos no Banco de dados deve ser feito o:
+  ```sql
+  select * from users 
+  ```
 
 ### 1. Criar Usuário
 
